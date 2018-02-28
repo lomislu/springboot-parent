@@ -1,0 +1,70 @@
+# Tomcat 配置
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-connections: 1000
+    min-spare-threads: 30
+  port: 8081
+  context-path: /
+  connection-timeout: 5000
+
+spring:
+  datasource:
+    master:
+      url: jdbc:mysql://localhost:3306/master?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: 1hangB6upQt
+      filters: stat,wall
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      maxOpenPreparedStatements: 20
+
+    slave1:
+      url: jdbc:mysql://localhost:3306/slave1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: 1hangB6upQt
+      filters: stat,wall
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      maxOpenPreparedStatements: 20
+
+    slave2:
+      url: jdbc:mysql://localhost:3306/slave2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: 1hangB6upQt
+      filters: stat,wall
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      maxOpenPreparedStatements: 20
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.coeho.model
+
